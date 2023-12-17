@@ -1,8 +1,7 @@
 '''
 caesar_cipher_functions.py
 eyecode4you 17/12/23
-Expanding on the concepts in: 
-https://www.udemy.com/course/learn-modern-security-and-cryptography-by-coding-in-python/    - A brilliant course I recommend!
+Expanding on the concepts in: https://www.udemy.com/course/learn-modern-security-and-cryptography-by-coding-in-python/    - A brilliant course I recommend!
 '''
 import random, sys
 
@@ -49,8 +48,19 @@ def get_decryption_key(key):
 		dkey[key[c]] = c
 	return dkey
 	
+def get_schwifty():
+	''' allow user to change shift value '''
+	while 1:
+		try:
+			kval = int(input("ENTER SHIFT VALUE: "))
+			key = generate_key(kval)
+			break
+		except:
+			print("ERROR: ENTER AN INTEGER NUMBER!")
+	return kval, key
+	
 '''PROGRAM RUN'''
-kval = 0
+kval, key = get_schwifty()
 while 1:
 	print("\n****CAESAR CIPHER****\n----------------------------")
 	print("CURRENT SHIFT VALUE: ", kval)
@@ -59,8 +69,7 @@ while 1:
 	if choice == 'W':
 		''' CHANGE SHIFT VALUE '''
 		try:
-			kval = int(input("ENTER SHIFT VALUE: "))
-			key = generate_key(kval)
+			kval, key = get_schwifty()
 		except:
 			print("ERROR: PLEASE ENTER AN INTEGER NUMBER!")
 	elif choice == 'S':
