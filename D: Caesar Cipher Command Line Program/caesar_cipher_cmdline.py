@@ -27,6 +27,7 @@ def display_key(key):
 	for v in key.values():
 		print(v, end=' ')
 	print()
+	
 def encrypt(key, message):
 	''' Take in message, iterate through, and shift '''
 	SALT = ("`¬!\"£$%^&*\(\)-_=+\\|[{]};:'@#~,<.>/?")
